@@ -20,7 +20,7 @@ describe(" should check equality of things heavily ", () => {
     const list1 = ['Christoph', 'Priya']
     const list2 = ['Christoph', 'Priya']
   
-    expect( list1 ).toEqual( list2 )
+    expect( list1 ).toEqual( list2 ) // for array content comparison => toEqual too!
   
   })
 
