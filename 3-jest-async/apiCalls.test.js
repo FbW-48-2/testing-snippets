@@ -23,16 +23,20 @@ describe(" Test my API! ", () => {
 
   })
 
+  // for handling expectations inside CALLBACKS, we need to pass the "done" function to a test
+  // the done function we can use to tell jest, where our test actually should finish 
+  // (otherwise jest will just run through the test and marking it "successful", not waiting for any callbacks to complete...
   test(" should do something in a callback", (done) => {
 
     setTimeout( () => {
 
       try {
-        expect(5).toBe(5) // => should fail!
+        expect(5).toBe(3) // => should fail => we always need to handle exceptions in callbacks with try / catch always!
+        // expect(5).toBe(5) // => would work!
         done() // mark SUCCESS on success case
       }
       catch(err) {
-        done(err) // mark FAILURE to Jest
+        done(err) // mark FAILURE to Jest => we pass the received error to the done function
       }
 
       // complete
